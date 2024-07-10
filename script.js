@@ -2,6 +2,7 @@ const textarea = document.querySelector(".input-text");
 const btnEncrypt = document.querySelector(".btn-encrypt");
 const btnDecrypt = document.querySelector(".btn-decrypt");
 const textSection = document.querySelector(".chat-texts");
+const textSectionHistory = document.querySelector(".chat-texts-history");
 
 textarea.addEventListener(
   "input",
@@ -60,16 +61,7 @@ function decryptText(text) {
   return text;
 }
 
-function addTextToChat() {
-  textSection.innerHTML = "";
-  for (let [index, [title, content]] of chat.entries()) {
-    console.log(title);
-    console.log(content);
-    createText(title, content);
-  }
-}
-
-function createText(title, content) {
+function createText(title, content, onHistory) {
   const text = document.createElement("div");
   text.classList.add("text");
 
@@ -95,7 +87,32 @@ function createText(title, content) {
   btnCopy.appendChild(spanIconCopy);
   text.appendChild(btnCopy);
 
-  textSection.appendChild(text);
+  if (onHistory) {
+    textSectionHistory.appendChild(text);
+  } else {
+    textSection.appendChild(text);
+  }
 }
 
+let hisArray = [];
+
+if (localStorage.length) {
+  let history = localStorage.getItem("History");
+  hisArray = JSON.parse(history);
+  console.log(hisArray);
+  for (let [index, [title, content]] of hisArray.entries()) {
+    createText(title, content, true);
+  }
+}
+
+function addTextToChat() {
+  textSection.innerHTML = "";
+  hisArray = [...hisArray, ...chat];
+  const stringChat = JSON.stringify(hisArray);
+  localStorage.setItem("History", stringChat);
+  console.log(localStorage);
+  for (let [index, [title, content]] of chat.entries()) {
+    createText(title, content);
+  }
+}
 // addTextToChat();
