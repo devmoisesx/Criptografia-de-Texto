@@ -105,6 +105,40 @@ main {
 .chat-texts > .text {
   background-color: transparent;
   padding: var(--space-s);
+  position: relative;
+
+  &:hover {
+    background-color: var(--bg-first);
+    border-radius: var(--rounded-s);
+  }
+
+  /* &:hover .btn-copy {
+    display: block;
+  } */
+}
+
+.text > .btn-copy {
+  background-color: var(--bg-secondary);
+  border-radius: var(--rounded-xs);
+  width: fit-content;
+  padding: 5px;
+  /* display: none; */
+  position: absolute;
+  top: 5px;
+  right: 5px;
+
+  &:active {
+    background-color: var(--bg-secondary-active);
+  }
+}
+
+.btn-copy > .material-symbols-outlined {
+  font-size: var(--text-size-m);
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+
+  &:active {
+    font-variation-settings: "FILL" 1;
+  }
 }
 
 .text > .text-title {
