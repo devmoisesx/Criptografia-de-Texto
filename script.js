@@ -3,6 +3,15 @@ const btnEncrypt = document.querySelector(".btn-encrypt");
 const btnDecrypt = document.querySelector(".btn-decrypt");
 const textSection = document.querySelector(".chat-texts");
 const textSectionHistory = document.querySelector(".chat-texts-history");
+const btnHistory = document.querySelector(".btn-history");
+
+btnHistory.addEventListener("click", () => {
+  if (document.querySelector(".history-section").style.display === "none") {
+    document.querySelector(".history-section").style.display = "flex";
+  } else {
+    document.querySelector(".history-section").style.display = "none";
+  }
+});
 
 textarea.addEventListener(
   "input",
