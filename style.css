@@ -266,3 +266,31 @@ main > .history-section {
     background-color: var(--bg-fourth-active);
   }
 }
+
+@media (min-width: 720px) {
+  .header > .btn-history {
+    display: none;
+    visibility: hidden;
+  }
+
+  main {
+    height: calc(100% - 80px);
+    position: relative;
+
+    display: grid;
+    grid-template-columns: minmax(30vw, 20%) 1fr;
+    gap: 10px;
+  }
+
+  main > .history-section {
+    height: calc(100vh - 80px);
+    display: grid;
+    grid-template-rows: 92% 1fr;
+    position: relative;
+  }
+
+  .form-chat > .buttons-area {
+    padding: 0 var(--space-m);
+  }
+  
+}
