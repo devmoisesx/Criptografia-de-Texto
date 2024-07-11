@@ -7,12 +7,10 @@ const btnHistory = document.querySelector(".btn-history");
 const btnClearHistory = document.querySelector(".btn-clean-history");
 
 btnHistory.addEventListener("click", () => {
-  if (document.querySelector(".history-section").style.display === "none") {
-    document.querySelector(".history-section").style.display = "grid";
-    document.querySelector(".chat").style.boxShadow = "none";
+  if (document.querySelector(".history-section").classList.contains("active")) {
+    document.querySelector(".history-section").classList.remove("active");
   } else {
-    document.querySelector(".history-section").style.display = "none";
-    document.querySelector(".chat").style.boxShadow = "var(--shadow)";
+    document.querySelector(".history-section").classList.add("active");
   }
 });
 

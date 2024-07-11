@@ -96,6 +96,10 @@ main > .history-section {
   z-index: 1000;
 }
 
+.history-section.active {
+  display: grid;
+}
+
 .history-section > .chat-texts-history {
   width: 100%;
   height: 100%;
