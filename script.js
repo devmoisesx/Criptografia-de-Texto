@@ -34,13 +34,14 @@ let chat = [];
 
 btnEncrypt.addEventListener("click", (e) => {
   e.preventDefault();
-  if (textarea.value == "") return null;
-  const textMinus = textarea.value.toLowerCase();
-  chat[chat.length] = ["Seu Texto", textMinus];
-  const response = encryptText(textMinus);
-  chat[chat.length] = ["Texto Criptografado", response];
-  textarea.value = "";
-  addTextToChat();
+  if (!textarea.value == "") {
+    const textMinus = textarea.value.toLowerCase();
+    chat[chat.length] = ["Seu Texto", textMinus];
+    const response = encryptText(textMinus);
+    chat[chat.length] = ["Texto Criptografado", response];
+    textarea.value = "";
+    addTextToChat();
+  }
 });
 
 function encryptText(text) {
@@ -61,13 +62,14 @@ function encryptText(text) {
 
 btnDecrypt.addEventListener("click", (e) => {
   e.preventDefault();
-  if (textarea.value == "") return null;
-  const textMinus = textarea.value.toLowerCase();
-  chat[chat.length] = ["Seu Texto", textMinus];
-  const response = decryptText(textMinus);
-  chat[chat.length] = ["Texto Descriptografado", response];
-  textarea.value = "";
-  addTextToChat();
+  if (!textarea.value == "") {
+    const textMinus = textarea.value.toLowerCase();
+    chat[chat.length] = ["Seu Texto", textMinus];
+    const response = decryptText(textMinus);
+    chat[chat.length] = ["Texto Descriptografado", response];
+    textarea.value = "";
+    addTextToChat();
+  }
 });
 
 function decryptText(text) {
