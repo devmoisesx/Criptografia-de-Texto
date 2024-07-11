@@ -4,6 +4,7 @@ const btnDecrypt = document.querySelector(".btn-decrypt");
 const textSection = document.querySelector(".chat-texts");
 const textSectionHistory = document.querySelector(".chat-texts-history");
 const btnHistory = document.querySelector(".btn-history");
+const btnClearHistory = document.querySelector(".btn-clean-history");
 
 btnHistory.addEventListener("click", () => {
   if (document.querySelector(".history-section").style.display === "none") {
@@ -13,6 +14,11 @@ btnHistory.addEventListener("click", () => {
     document.querySelector(".history-section").style.display = "none";
     document.querySelector(".chat").style.boxShadow = "var(--shadow)";
   }
+});
+
+btnClearHistory.addEventListener("click", () => {
+  localStorage.clear();
+  textSectionHistory.innerText = "";
 });
 
 textarea.addEventListener(
