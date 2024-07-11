@@ -104,6 +104,14 @@ function createText(title, content, onHistory) {
   btnCopy.appendChild(spanIconCopy);
   text.appendChild(btnCopy);
 
+  if (
+    textTitle.textContent === "Texto Criptografado" ||
+    textTitle.textContent === "Texto Descriptografado"
+  ) {
+    textTitle.style.color = "var(--text-color-third)";
+    textContent.classList.add("line");
+  }
+
   if (onHistory) {
     textSectionHistory.appendChild(text);
   } else {
