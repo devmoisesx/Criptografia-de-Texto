@@ -39,7 +39,7 @@
 }
 
 html {
-  font-size: clamp(62.5%, 62.5% + 0.1vw, 100%);
+  font-size: 62.5%;
 }
 
 body {
@@ -282,7 +282,7 @@ main > .history-section {
     position: relative;
 
     display: grid;
-    grid-template-columns: minmax(30vw, 20%) 1fr;
+    grid-template-columns: 30vw 1fr;
     gap: 10px;
   }
 
@@ -293,8 +293,17 @@ main > .history-section {
     position: relative;
   }
 
+  .form-chat {
+    height: 100%;
+  }
+
   .form-chat > .buttons-area {
     padding: 0 var(--space-m);
   }
-  
+}
+
+@media (min-width: 900px) {
+  main {
+    grid-template-columns: 20vw 1fr;
+  }
 }

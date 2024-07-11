@@ -16,6 +16,7 @@ btnHistory.addEventListener("click", () => {
 
 btnClearHistory.addEventListener("click", () => {
   localStorage.clear();
+  hisArray = [];
   textSectionHistory.innerText = "";
 });
 
