@@ -7,9 +7,11 @@ const btnHistory = document.querySelector(".btn-history");
 
 btnHistory.addEventListener("click", () => {
   if (document.querySelector(".history-section").style.display === "none") {
-    document.querySelector(".history-section").style.display = "flex";
+    document.querySelector(".history-section").style.display = "grid";
+    document.querySelector(".chat").style.boxShadow = "none";
   } else {
     document.querySelector(".history-section").style.display = "none";
+    document.querySelector(".chat").style.boxShadow = "var(--shadow)";
   }
 });
 
@@ -35,16 +37,6 @@ btnEncrypt.addEventListener("click", (e) => {
   addTextToChat();
 });
 
-btnDecrypt.addEventListener("click", (e) => {
-  e.preventDefault();
-  const textMinus = textarea.value.toLowerCase();
-  chat[chat.length] = ["Seu Texto", textMinus];
-  const response = decryptText(textMinus);
-  chat[chat.length] = ["Texto Descriptografado", response];
-  textarea.value = "";
-  addTextToChat();
-});
-
 function encryptText(text) {
   const encryptedWords = {
     e: "enter",
@@ -60,6 +52,16 @@ function encryptText(text) {
   }
   return textEncrypted;
 }
+
+btnDecrypt.addEventListener("click", (e) => {
+  e.preventDefault();
+  const textMinus = textarea.value.toLowerCase();
+  chat[chat.length] = ["Seu Texto", textMinus];
+  const response = decryptText(textMinus);
+  chat[chat.length] = ["Texto Descriptografado", response];
+  textarea.value = "";
+  addTextToChat();
+});
 
 function decryptText(text) {
   text = text.replace(/enter/g, "e");
@@ -108,7 +110,6 @@ let hisArray = [];
 if (localStorage.length) {
   let history = localStorage.getItem("History");
   hisArray = JSON.parse(history);
-  console.log(hisArray);
   for (let [index, [title, content]] of hisArray.entries()) {
     createText(title, content, true);
   }
@@ -119,9 +120,7 @@ function addTextToChat() {
   hisArray = [...hisArray, ...chat];
   const stringChat = JSON.stringify(hisArray);
   localStorage.setItem("History", stringChat);
-  console.log(localStorage);
   for (let [index, [title, content]] of chat.entries()) {
     createText(title, content);
   }
 }
-// addTextToChat();

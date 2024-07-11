@@ -13,7 +13,7 @@
   --bg-fourth-active: #478adc;
 
   --text-color-first: #0a3871;
-  --text-color-secondary: #00000054;
+  --text-color-secondary: #000000a1;
   --text-color-third: #fff;
 
   --text-size-s: 12px;
@@ -32,6 +32,9 @@
   --rounded-xs: 8px;
   --rounded-s: 12px;
   --rounded-m: 22px;
+
+  --shadow: 0px 5px 15px 2px rgba(0, 0, 0, .2);
+  --shadow-s: 0px 0px 5px 0px rgba(0, 0, 0, .2);
 }
 
 html {
@@ -59,8 +62,10 @@ body {
 
 .header > .btn-history {
   background-color: var(--bg-secondary);
+  box-shadow: var(--shadow-s);
   border-radius: var(--rounded-s);
   padding: var(--space-s);
+  cursor: pointer;
 
   .material-symbols-outlined {
     font-size: var(--text-size-x);
@@ -79,13 +84,13 @@ main {
 
 main > .history-section {
   background-color: var(--bg-secondary);
+  box-shadow: var(--shadow);
   border-radius: var(--rounded-s);
   width: 100%;
   height: 100%;
   padding: var(--space-s);
   display: none;
-  flex-direction: column;
-  align-items: center;
+  grid-template-rows: 92% 1fr;
   position: absolute;
   z-index: 1000;
 }
@@ -96,6 +101,29 @@ main > .history-section {
   display: flex;
   flex-direction: column;
   overflow-y: scroll;
+}
+
+.history-section > .btn-clean-history {
+  font-size: var(--text-size-m);
+  font-weight: 600;
+  color: var(--text-color-first);
+  background-color: transparent;
+  border: 2px solid var(--bg-fourth);
+  border-radius: var(--rounded-s);
+  outline: none;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-s);
+  cursor: pointer;
+
+  &:active {
+    color: var(--text-color-third);
+    background-color: var(--bg-fourth-active);
+    border: 1px solid var(--bg-fourth-active);
+  }
 }
 
 .form-chat {
@@ -110,6 +138,7 @@ main > .history-section {
 .form-chat > .chat {
   background-color: var(--bg-secondary);
   border-radius: var(--rounded-s);
+  box-shadow: var(--shadow);
   width: 100%;
   height: 100%;
   padding: var(--space-s);
@@ -146,6 +175,7 @@ main > .history-section {
   position: absolute;
   top: 5px;
   right: 5px;
+  cursor: pointer;
 
   &:active {
     background-color: var(--bg-secondary-active);
@@ -164,15 +194,22 @@ main > .history-section {
 .text > .text-title {
   color: var(--text-color-secondary);
   font-size: var(--text-size-s);
-  font-weight: 400;
+  font-weight: 600;
   font-family: var(--font-family);
 }
 
 .text > .text-content {
   color: var(--text-color-first);
-  font-size: var(--text-size-sm);
+  font-size: var(--text-size-m);
   font-family: var(--font-family);
-  line-height: 14px;
+  line-height: 20px;
+}
+
+.chat-texts > .line,
+.chat-texts-history > .line {
+  content: "";
+  margin-bottom: var(--space-m);
+  border-bottom: 2px solid rgba(0, 0, 0, .1);
 }
 
 .chat > .input-text {
@@ -200,10 +237,13 @@ main > .history-section {
 
 .buttons-area > .btn-encrypt {
   color: var(--text-color-third);
+  font-size: var(--text-size-m);
+  font-weight: 700;
   background-color: var(--bg-fourth);
   padding: var(--space-m);
   border-radius: var(--rounded-s);
   border: none;
+  cursor: pointer;
 
   &:active {
     background-color: var(--bg-fourth-active);
@@ -212,10 +252,13 @@ main > .history-section {
 
 .buttons-area > .btn-decrypt {
   color: var(--text-color-first);
+  font-size: var(--text-size-m);
+  font-weight: 700;
   background-color: transparent;
   padding: var(--space-m);
   border-radius: var(--rounded-s);
-  border: 1px solid var(--bg-fourth);
+  border: 2px solid var(--bg-fourth);
+  cursor: pointer;
 
   &:active {
     color: var(--text-color-third);
