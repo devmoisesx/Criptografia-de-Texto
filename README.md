@@ -6,9 +6,11 @@ Criado para o desafio da ONE Alura.
 ### Fotos do Site:
 
 <img src="assets/readme/img-1%20(1).jpeg" style="width: 600px" />
-<img src="assets/readme/img-1%20(2).jpeg" style="width: 200px" />
-<img src="assets/readme/img-1%20(3).jpeg" style="width: 200px" />
-<img src="assets/readme/img-1%20(4).jpeg" style="width: 200px" />
+<div align="start">
+  <img src="assets/readme/img-1%20(2).jpeg" style="width: 200px" />
+  <img src="assets/readme/img-1%20(3).jpeg" style="width: 200px" />
+  <img src="assets/readme/img-1%20(4).jpeg" style="width: 200px" />
+</div>
 
 ### Funcionalidades:
 
