@@ -34,6 +34,7 @@ let chat = [];
 
 btnEncrypt.addEventListener("click", (e) => {
   e.preventDefault();
+  if (textarea.value == "") return null;
   const textMinus = textarea.value.toLowerCase();
   chat[chat.length] = ["Seu Texto", textMinus];
   const response = encryptText(textMinus);
@@ -60,6 +61,7 @@ function encryptText(text) {
 
 btnDecrypt.addEventListener("click", (e) => {
   e.preventDefault();
+  if (textarea.value == "") return null;
   const textMinus = textarea.value.toLowerCase();
   chat[chat.length] = ["Seu Texto", textMinus];
   const response = decryptText(textMinus);
