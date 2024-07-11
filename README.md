@@ -29,4 +29,4 @@ Criado para o desafio da ONE Alura.
 
 ### Voçê pode me encontrar em:
 
-- Linkedin: [Moisés Xavier](www.linkedin.com/in/moises-xavier)
+- Linkedin: ![Moisés Xavier](www.linkedin.com/in/moises-xavier)
